@@ -1,0 +1,32 @@
+# SoftOne Design System - Utils Module
+
+이 디렉토리에는 공통 유틸리티 함수가 위치합니다.
+
+## 현재 구현된 유틸리티
+
+- cn.ts: Tailwind CSS 클래스 병합 (clsx + tailwind-merge)
+
+## Step 2에서 추가 예정
+
+- dateUtils.ts: 날짜 포맷팅, 파싱, 계산
+- formatUtils.ts: 숫자, 통화, 전화번호 포맷팅
+- validationUtils.ts: 이메일, 전화번호, 사업자번호 검증
+- fileUtils.ts: 파일 크기, 확장자, MIME 타입 처리
+- enumUtils.ts: Enum ↔ SelectOption 변환
+- gridUtils.ts: 그리드 데이터 처리
+
+## 사용 예시
+
+```tsx
+import { cn, formatDate, formatCurrency } from '@core/utils';
+
+// 클래스 병합
+const className = cn('px-4', isActive && 'bg-blue-500');
+
+// 날짜 포맷팅
+const formatted = formatDate(new Date(), 'yyyy-MM-dd');
+
+// 통화 포맷팅
+const price = formatCurrency(10000); // ₩10,000
+```
+

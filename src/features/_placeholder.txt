@@ -1,0 +1,36 @@
+# SoftOne Design System - Features Module
+
+이 디렉토리에는 도메인별 기능(Features)이 위치합니다.
+
+## 구조
+
+각 Feature는 다음 구조를 따릅니다:
+
+```
+features/
+├── auth/           # 인증 기능 (Step 3)
+│   ├── api/        # API 호출
+│   ├── model/      # 타입 & 스키마
+│   ├── ui/         # UI 컴포넌트
+│   └── pages/      # 페이지 컴포넌트
+│
+├── dashboard/      # 대시보드 (Step 3)
+├── users/          # 사용자 관리 (Step 4)
+├── schedules/      # 일정 관리
+├── articles/       # 게시물 관리
+└── grid-samples/   # 그리드 샘플
+```
+
+## 의존성 규칙
+
+- Feature → Core: ✅ 허용
+- Feature → Feature: ⚠️ 최소화 (공유 모듈 사용 권장)
+- Core → Feature: ❌ 금지
+
+## Step 별 구현 계획
+
+- Step 2: Core UI Components
+- Step 3: Auth Feature (로그인/로그아웃)
+- Step 4: Users Feature (사용자 CRUD)
+- Step 5: Grid Samples Feature
+

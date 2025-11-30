@@ -1,0 +1,341 @@
+/**
+ * SoftOne Design System - Global Styles
+ * CSS Variable 기반 Design Token 정의
+ *
+ * 엔터프라이즈 Admin에서 일관된 테마와 스타일을 보장하는
+ * SDS Design Token 시스템입니다.
+ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   SDS Design Token - CSS Variables
+   ======================================== */
+
+:root {
+  /* ----------------------------------------
+     Primary Colors (Blue)
+     ---------------------------------------- */
+  --softone-primary: #2563eb;
+  --softone-primary-hover: #1d4ed8;
+  --softone-primary-light: #dbeafe;
+
+  /* ----------------------------------------
+     Secondary Colors (Slate)
+     ---------------------------------------- */
+  --softone-secondary: #475569;
+  --softone-secondary-hover: #334155;
+
+  /* ----------------------------------------
+     Semantic Colors
+     ---------------------------------------- */
+  --softone-success: #10b981;
+  --softone-success-light: #d1fae5;
+
+  --softone-warning: #f59e0b;
+  --softone-warning-light: #fef3c7;
+
+  --softone-danger: #ef4444;
+  --softone-danger-light: #fee2e2;
+
+  --softone-info: #06b6d4;
+  --softone-info-light: #cffafe;
+
+  /* ----------------------------------------
+     Background & Surface
+     ---------------------------------------- */
+  --softone-bg: #f8fafc;
+  --softone-surface: #ffffff;
+  --softone-surface-hover: #f1f5f9;
+  --softone-surface-overlay: rgba(0, 0, 0, 0.5);
+
+  /* ----------------------------------------
+     Text Colors
+     ---------------------------------------- */
+  --softone-text: #111827;
+  --softone-text-secondary: #4b5563;
+  --softone-text-muted: #9ca3af;
+
+  /* ----------------------------------------
+     Border Colors
+     ---------------------------------------- */
+  --softone-border: #e5e7eb;
+  --softone-border-hover: #d1d5db;
+
+  /* ----------------------------------------
+     Sidebar Colors
+     ---------------------------------------- */
+  --softone-sidebar-bg: #1e293b;
+  --softone-sidebar-text: #94a3b8;
+  --softone-sidebar-hover: #334155;
+  --softone-sidebar-active: #2563eb;
+
+  /* ----------------------------------------
+     Layout
+     ---------------------------------------- */
+  --softone-sidebar-width: 260px;
+  --softone-sidebar-collapsed-width: 64px;
+  --softone-header-height: 64px;
+}
+
+/* ========================================
+   Dark Mode Variables
+   ======================================== */
+.dark {
+  --softone-bg: #0f172a;
+  --softone-surface: #1e293b;
+  --softone-surface-hover: #334155;
+  --softone-text: #f9fafb;
+  --softone-text-secondary: #cbd5e1;
+  --softone-text-muted: #64748b;
+  --softone-border: #334155;
+  --softone-border-hover: #475569;
+
+  --softone-sidebar-bg: #0f172a;
+  --softone-sidebar-hover: #1e293b;
+}
+
+/* ========================================
+   Base Styles
+   ======================================== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  @apply bg-softone-bg text-slate-900 font-softone;
+  min-height: 100vh;
+}
+
+/* ========================================
+   Focus Styles (Accessibility)
+   ======================================== */
+:focus-visible {
+  outline: 2px solid var(--softone-primary);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   Scrollbar Styles
+   ======================================== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Sidebar Scrollbar */
+.sidebar-scrollbar::-webkit-scrollbar {
+  width: 4px;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.3);
+  border-radius: 9999px;
+}
+
+/* ========================================
+   Utility Classes
+   ======================================== */
+.sds-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Animation Keyframes */
+@keyframes sds-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sds-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sds-slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes sds-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.sds-animate-fade-in {
+  animation: sds-fade-in 200ms ease-out;
+}
+
+.sds-animate-slide-up {
+  animation: sds-slide-up 200ms ease-out;
+}
+
+.sds-animate-slide-in-left {
+  animation: sds-slide-in-left 200ms ease-out;
+}
+
+.sds-animate-scale-in {
+  animation: sds-scale-in 200ms ease-out;
+}
+
+/* ========================================
+   Toast Animations (Step 7)
+   ======================================== */
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-right {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right 300ms ease-out;
+}
+
+.animate-slide-out-right {
+  animation: slide-out-right 300ms ease-in;
+}
+
+/* ========================================
+   Accordion Animations (Step 7)
+   ======================================== */
+@keyframes accordion-down {
+  from {
+    height: 0;
+    opacity: 0;
+  }
+  to {
+    height: var(--accordion-content-height);
+    opacity: 1;
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--accordion-content-height);
+    opacity: 1;
+  }
+  to {
+    height: 0;
+    opacity: 0;
+  }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 200ms ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 200ms ease-in;
+}
+
+/* ========================================
+   ag-Grid Custom Styles (Step 9)
+   ======================================== */
+
+/* 에러 셀 스타일 - 빨간 배경 */
+.ag-theme-alpine .ag-cell.bg-red-100 {
+  background-color: #fee2e2 !important;
+}
+
+.ag-theme-alpine .ag-cell.border-red-400 {
+  border: 2px solid #f87171 !important;
+}
+
+/* 수정된 셀 스타일 - 노란 배경 */
+.ag-theme-alpine .ag-cell.bg-amber-50 {
+  background-color: #fffbeb !important;
+}
+
+/* 편집 중인 셀 스타일 */
+.ag-theme-alpine .ag-cell-inline-editing {
+  box-shadow: 0 0 0 2px var(--softone-primary) !important;
+  border-radius: 4px !important;
+}
+
+/* 셀 에디터 스타일 */
+.ag-theme-alpine .ag-cell-edit-wrapper {
+  border-radius: 4px;
+}
+
+.ag-theme-alpine .ag-cell-editor input {
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/* 선택된 행 스타일 */
+.ag-theme-alpine .ag-row-selected {
+  background-color: #dbeafe !important;
+}
+
+/* 호버 효과 */
+.ag-theme-alpine .ag-row:hover {
+  background-color: #f1f5f9 !important;
+}
