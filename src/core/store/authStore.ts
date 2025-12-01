@@ -22,10 +22,7 @@ import {
 } from "../auth/role.types";
 import type { UserMenuPolicy } from "../auth/userMenuPolicy.types";
 import type { MenuNode } from "../router/menu.types";
-import {
-  buildAccessContext,
-  type AccessContext,
-} from "../router/menuAccessUtils";
+import { buildAccessContext } from "../router/menuAccessUtils";
 import { routeConfig } from "../router/routeConfig";
 import { menuTree } from "../router/menuConfig";
 
